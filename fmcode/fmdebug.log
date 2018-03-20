@@ -1,0 +1,41 @@
+
+2015-08-13: 3dfmlib.f90
+change allocate-related segmentation fault.
+!      allocate(s%time_field(s%n_time_fields)%time_gradient(3,reg%nnode))
+!      s%time_field(s%n_time_fields)%time_gradient=reg%time_gradient
+      allocate(s%time_field(s%n_time_fields)%time_gradient(3,reg%nnode))
+      allocate(tg(3,reg%nnode))
+      tg=reg%time_gradient
+      s%time_field(s%n_time_fields)%time_gradient=tg
+      deallocate(tg)
+
+2015-08-06: rays.f90
+change the ray with 'more than maxpoints in raysection' to a invalid ray, make sure the code can run
+           if (n > maxpoints) then
+           
+              raysec%ray%valid = .false.
+              deallocate(pt)
+              return
+!> comment and revised by Weijia Sun. This would make the code runing rather than stop              
+!>              print *,'more than maxpoints in raysection'
+!>              print '(i6,3f12.5)',n-1,pt(1:3,n-1)
+!>              print '(a6,3f12.5)','source',s%r,s%lat,s%long
+!>              stop
+           endif
+
+
+
+this is recorded by weijia
+2015-08-06
+
+stop output:
+more than maxpoints in raysection
+	|
+	^
+subroutine trace_ray_section(raysec,r_in,lat_in,long_in,r_out,lat_out,long_out,outside)
+	|
+	^
+subroutine trace_ray_from_receiver(rec,s,ray)
+	|
+	^
+3dfm_main.f90

@@ -1,0 +1,11 @@
+../syntimes.dat                c: Input synthetic times
+0.1                            c: Data covariance (s)
+otimes.dat                     c: Output "observed traveltime" file
+../sourcesref.in               c: Source file
+../rtimes.dat                  c: Reference teleseismic times
+0.0                            c: DC offset to traveltimes
+1                              c: Add noise to synthetic times (0=no,1=yes)
+0.100                          c: Standard deviation of added noise (local)
+0.077                          c: Standard deviation of added noise (teleseismic)
+1                              c: Weight with standard deviation (1) or noise (2)
+99827374                       c: Random seed for noise generation

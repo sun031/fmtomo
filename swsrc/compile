@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ifort -o gmtslices gmtslices.f90
+
+cp gmtslices ../bin
+cp tomo3d.py ../bin

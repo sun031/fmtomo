@@ -1,0 +1,86 @@
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c Input file names
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+../vgrids.in                c: Inversion model velocity vertices
+../vgridsref.in             c: Reference model velocity vertices
+../interfaces.in            c: Inversion model interface vertices
+../interfacesref.in         c: Reference model interface vertices
+6371.0                      c: Earth radius (km)
+0                           c: Generate P(0) or S(1) velocities
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c Set parameters for plotting ray paths if required
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+1                           c: Generate raypaths (0=no, 1=yes)
+../rays.dat                 c: File containing raypahts
+raysd.xy                    c: File name for depth projection
+raysew.xy                   c: File name for EW projection
+raysns.xy                   c: File name for NS projection
+raysgc.xy                   c: File name for GC projection
+30                          c: Plot every nth ray point
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c Set parameters for plotting sources and receivers
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+1                           c: Generate sources & receivers (0=no, 1=yes)
+../sources.in               c: File containing sources
+../receivers.in             c: File containing receivers
+sourcesd.xy                 c: Output source file for depth projection
+sourcesew.xy                c: Output source file for EW projection
+sourcesns.xy                c: Output source file for NS projection
+sourcesgc.xy                c: Output source file for GC projection
+receiversd.xy               c: Output receiver file for depth projection
+receiversew.xy              c: Output receiver file for EW projection
+receiversns.xy              c: Output receiver file for NS projection
+receiversgc.xy              c: Output receiver file for GC projection
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c Set parameters for taking horizontal and vertical slices
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccccccccccccccccccccccccccccccccccccccccccccccc
+c Slice parameters
+ccccccccccccccccccccccccccccccccccccccccccccccc
+1                           c: Extract depth slice? (0=no, 1=yes)
+-1.0                        c: Depth of slice (km)
+bounddp.gmt                 c: GMT plotting bounds for depth slice
+contint.d                   c: GMT depth contouring file
+1                           c: Extract N-S slice? (0=no, 1=yes)
+244.90                      c: Longitude of slice (degrees)
+boundns.gmt                 c: GMT plotting bounds for N-S slice
+1                           c: Extract E-W slice? (0=no, 1=yes)
+36.25                       c: Latitude of slice (degrees)
+boundew.gmt                 c: GMT plotting bounds for E-W slice
+1                           c: Extract great circle slice? (0=no,1=yes)
+36.30       244.75          c: Lat,Long of first GC point
+36.10       245.15          c: Lat,Long of second GC point
+boundgc.gmt                 c: GMT plotting bounds for great circle slice
+ccccccccccccccccccccccccccccccccccccccccccccccc
+c Velocity grid parameters
+ccccccccccccccccccccccccccccccccccccccccccccccc
+1                           c: 0=absolute, 1=relative velocity
+10  10                      c: Dicing in theta,phi
+grid2dvd.z                  c: GMT output file for depth slice
+10  10                      c: Dicing in r,theta
+grid2dvns.z                 c: GMT output file for N-S slice
+10  10                      c: Dicing in r,phi
+grid2dvew.z                 c: GMT output file for E-W slice
+300  30                     c: Total number of GC points (horizontal, vertical)
+grid2dvgc.z                 c: GMT output file for great circle slice
+ccccccccccccccccccccccccccccccccccccccccccccccc
+c Interface grid parameters
+ccccccccccccccccccccccccccccccccccccccccccccccc
+intns.xy                    c: GMT output file for N-S slice
+intew.xy                    c: GMT output file for E-W slice 
+intgc.xy                    c: GMT output file for GC slice
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c Set parameters for contour plots of interfaces
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+0                           c: 0=absolute, 1=relative depth
+1                           c: Number of interfaces to plot
+10  10                      c: Dicing in theta,phi
+boundsint.gmt               c: GMT plotting bounds for surface
+1                           c: ID of first interface to plot
+gridint1.z                  c: GMT output file
+2                           c: ID of second interface to plot
+gridint2.z                  c: GMT output file

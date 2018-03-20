@@ -1,0 +1,112 @@
+
+v1.0.9 2015-11-09
+Bug fixed in propagate.f90
+In rare case, the followed error information would give
+"time_from_3_nodes: two different valid solutions found in coplanar case"
+
+This would interrupt the fm3d, resulting in the end-of-file during read by inversion.
+
+               print *, 'ERROR: time_from_3_nodes: two different valid solutions found in coplanar case'
+!               stop 'time_from_3_nodes: two different valid solutions found in coplanar case'
+               return
+
+
+v1.0.8 2015-11-04
+Bug fixed in 3dfm_main.f90: 
+In some case, it does not write the invalid path into frechet.dat. This would result in reading file end-of-file. 
+Definitely, the inversion would fail.
+
+The case would give some information like this
+
+            print *,'ray',m,' to receiver ',n, &
+                 ' : requested path was recognised as invalid during the timefield calculations'
+
+            !> Weijia, in this case, it would not to write the derivatives in frechet.dat
+            !> this would result in end-of-file reading during inversion. 2015-11-04
+            if (do_frechet_derivatives) then
+               call write_frechet_derivatives(n,m)
+            endif
+
+
+v1.0.7 2015-11-02
+Bug fixed in rays.f90: set the ray to be invalid
+!> Weijia 2015-11-02 I have no idea what it means. I also set to a invalid raypath
+!        if(s%is_local .and. raysec%place_in_sequence == 1)  stop ' unable to find local source in ray section 1' 
+        if(s%is_local .and. raysec%place_in_sequence == 1)  then
+            raysec%ray%valid = .false.
+            return
+        endif
+
+
+v1.0.6 2015-11-02
+Bug fixed: rays.f90
+!> while the source is quite near the boundary, the ray may escape the model. 
+!  if (outside.and.s%is_local) stop 'error in ray tracing:ray outside grid for local source'
+  if (outside.and.s%is_local)then
+    ray%valid = .false.
+    return
+  endif
+
+
+v1.0.5 2015-11-02
+a new version same as v1.0.4, since forgot to compile these files to generate executable files.
+
+v1.0.4 2015-11-02
+
+In some case, dtdr, dtdlat, or dtdlong would be NAN. It must be divided by zero. But I have no idea what was lead. Thus, I set the rays with the case to be invalid.
+
+This occurs while calling the subroutine of interpolate_time_gradient in rays.f90
+              ! calculate gradient at provisional next position
+              call interpolate_time_gradient(tf,pp(1),pp(2),pp(3),grad1(1),grad1(2),grad1(3),verbose,outside,raysec)
+
+in the subroutine of interpolate_time_gradient in rays.f90
+! dtdr dtdlat dtdlon in same case is NAN
+  if (isnan(dtdr) .or. isnan(dtdlat) .or. isnan(dtdlong)) then
+     raysec%ray%valid = .false.
+     return
+  endif
+
+
+v1.0.3 2015-11-02
+This version is same as v1.0 and v1.0.1-2. Since I am not familiar with github, redudant versions are generated.
+This is a backup version, before doing the debuging while I do the east Asia tomography.
+
+2015-08-30 00:20
+BUG: propagate.f90
+         if (vscount == 2 .and. abs(u1-u2)>1.0e-10 ) then
+! this line commented by weijia. 2015-08-30 00:06
+!            if (dot_product(wn1,wn2) < 0.999_dp) then
+            if (dot_product(wn1,wn2) < 0.9099_dp) then
+I have no idea the if-statement, but I use 0.9099 replacing 0.999, it can works and outputs the arrival times.
+
+
+2015-08-28
+There are too many versions, that I fixed bugs. Now I tar a version v2.0, where all known bugs are fixed. These bugs are listed below.
+
+
+
+Additioanl instructions by Weijia Sun. 2015-08-13
+
+1. compile and install
+After you have installed the software package following the original instructions, 
+enter swsrc/, execute './compile'
+
+2. directory
+swsrc: a modified version of gmtslice, renamed gmtslices
+swscript: a python script running gmtslices, and plot bash file *.plt
+		  You can use these files to plot slices.
+		  
+3. Bugs
+I have fixed two bug of fmcode. please see the fmcode/readme.weijia
+
+
+gmtslices.f90, a revision by Weijia Sun, due to the depth is negative in the original version.
+tomo3d.py, a python version of tomo3d in bin directory
+fmtomo.1.0.1.tar.gz, fix a bug, 'maximim point'
+fmtomo.1.0.2.tar.gz, fix 2nd bug, 'segmentation fault', related to allocate
+
+fmtomov1.0a.tar.gz, original version of Nick Rawlinson, 
+but untar into a folder 'fmtomo'. Nick's version release 
+all files in current directory. it is nasty.
+
+

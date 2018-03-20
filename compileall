@@ -1,0 +1,94 @@
+#!/usr/bin/ksh
+#
+# Note, if ksh is not available, you can use 
+# another shell like zsh
+#
+##################################################
+##################################################
+# This script will compile all executable programs
+# that are required by the FMM based tomographic
+# inversion routine. Additional programs for
+# plotting, generating synthetic data etc. are
+# also compiled. See accompanying documentation
+# for further details
+##################################################
+##################################################
+#
+# YOU MUST SPECIFY A FORTRAN 90 COMPILER!!!!
+# Compiler options can be included at this stage
+# if deemed necessary by the user.
+#
+##################################################
+F90=ifort
+##################################################
+# NOTE: Compilation of the code "fm3d", which
+# solves the forward problem of data prediction, is
+# also carried out by this script. However, you
+# must ensure that the Makefile in the subdirectory
+# "fmcode" points to an appropriate Fotran 90
+# compiler. In addition, "fm3d" makes use of external
+# traveltime tables to compute teleseismic
+# traveltimes to the edge of the model region.
+# These tables are computed by a separate program
+# in the subdirectory "fmcode/aktimes". Edit the
+# Makefile in this directory so that it points to
+# an appropriate Fortran compiler.
+##################################################
+#
+# Enter the directory called "source" and compile
+# all programs.
+#
+##################################################
+cd source
+$F90 -o arraygen arraygen.f90
+$F90 -o frechgen frechgen.f90
+$F90 -o gmtslice gmtslice.f90
+$F90 -o grid3dg grid3dg.f90
+$F90 -o invert3d invert3d.f90
+$F90 -o moddata moddata.f90
+$F90 -o obsdata obsdata.f90
+$F90 -o residuals residuals.f90
+$F90 -o synthdata synthdata.f90
+##################################################
+#
+# Move all executables to  directory ../bin 
+#
+##################################################
+mv arraygen frechgen gmtslice ../bin
+mv grid3dg invert3d moddata ../bin
+mv obsdata residuals synthdata ../bin
+##################################################
+#
+# Enter subdirectory "fmcode", compile
+# "fm3d", and move it to ../bin directory. Copy
+# input file to ../sources/inputfiles
+#
+##################################################
+cd ../fmcode
+make fm3d
+make clean
+mv fm3d ../bin
+cp mode_set.in ../source/inputfiles
+##################################################
+#
+# Enter subdirectory "aktimes" and compile programs
+# for generating traveltime tables
+#
+##################################################
+cd aktimes
+make all
+make clean
+chmod u+x remodl setbrn
+./remodl > /dev/null
+./setbrn > /dev/null
+##################################################
+#
+# Copy output binary traveltime tables to
+# ../../source/inputfiles
+#
+##################################################
+cp ak135.tbl ak135.hed ../../source/inputfiles
+##################################################
+cd ../..
+echo " "
+echo "Compilation complete"
