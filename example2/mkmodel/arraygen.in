@@ -1,0 +1,5 @@
+arraygen.out                 c: Output file name
+-39.3   -41.7                c: N-S bounds of grid
+138.3   141.7                c: W-E bounds of grid
+-1.0                         c: Depth of receiver grid
+10    10                     c: Number of receivers in lat and long

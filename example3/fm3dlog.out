@@ -1,0 +1,254 @@
+ initializing propagation grid ......finished
+  initializing velocity grids  ......finished
+       initializing interfaces ......finished
+ intersection            1 :        1681  nodes found
+ intersection            2 :        1681  nodes found
+ intersection            3 :        1681  nodes found
+ main grid intersections initialized
+ main grid regions initialized
+ velocities on main grid, its intersections and regions evaluated
+ reading source           1
+ source           1  is located in region            1
+ reading source           2
+ source           2  is located in region            1
+ reading source           3
+ source           3  is located in region            1
+ reading source           4
+ source           4  is located in region            1
+ reading source           5
+ source           5  is located in region            1
+ reading source           6
+ source           6  is located in region            1
+ reading source           7
+ source           7  is located in region            1
+ reading source           8
+ source           8  is located in region            1
+ reading source           9
+ source           9  is located in region            1
+ reading source          10
+ source          10  is located in region            1
+ reading source          11
+ source          11  is located in region            1
+ reading source          12
+ source          12  is located in region            1
+ reading source          13
+ source          13  is located in region            1
+ reading source          14
+ source          14  is located in region            1
+ reading source          15
+ source          15  is located in region            1
+ reading source          16
+ source          16  is located in region            1
+ reading source          17
+ reading source          18
+ reading source          19
+ reading source          20
+ reading source          21
+ reading source          22
+ reading source          23
+ reading source          24
+ reading source          25
+ reading source          26
+ reading source          27
+ reading source          28
+ reading source          29
+ reading source          30
+ reading source          31
+ reading source          32
+ reading source          33
+ reading source          34
+ reading source          35
+ reading source          36
+ reading source          37
+ reading source          38
+ reading source          39
+ reading source          40
+ reading source          41
+ reading source          42
+ reading source          43
+ reading source          44
+ reading source          45
+ reading source          46
+ reading source          47
+ reading source          48
+ reading source          49
+ reading source          50
+ reading source          51
+ reading source          52
+ reading source          53
+ reading source          54
+ reading source          55
+ reading source          56
+ reading source          57
+ reading source          58
+ reading source          59
+ reading source          60
+ reading source          61
+ reading source          62
+ reading source          63
+ reading source          64
+ reading source          65
+ reading source          66
+ reading source          67
+ reading source          68
+ reading source          69
+ reading source          70
+ reading source          71
+ reading source          72
+ reading source          73
+ reading source          74
+ reading source          75
+ reading source          76
+ reading source          77
+ reading source          78
+ reading source          79
+ reading source          80
+ reading source          81
+ reading source          82
+ reading source          83
+ reading source          84
+ reading source          85
+ reading source          86
+ reading source          87
+ reading source          88
+ reading source          89
+ reading source          90
+ reading source          91
+ reading source          92
+ reading source          93
+ reading source          94
+ reading source          95
+ reading source          96
+ reading source          97
+ reading source          98
+ reading source          99
+ reading source         100
+ reading source         101
+ reading source         102
+ reading source         103
+ reading source         104
+ reading source         105
+ reading source         106
+ reading source         107
+ reading source         108
+ reading source         109
+ reading source         110
+ reading source         111
+ reading source         112
+ reading source         113
+ reading source         114
+ reading source         115
+ reading source         116
+ reading source         117
+ reading source         118
+ reading source         119
+ reading source         120
+ reading source         121
+ reading source         122
+ reading source         123
+ reading source         124
+ reading source         125
+ reading source         126
+ finished reading sources
+ finished reading receivers
+ finsihed initializing sources and receivers
+ 
+ starting to initialize local source           1
+ intersection            1 :        2601  nodes found
+ intersection            2 :        2601  nodes found
+ intersection            3 :           0  nodes found
+ intersections found
+ nodes of refined source grid tagged
+ refined source region           1  defined, nnode =       46818
+ refined source region           2  defined, nnode =       26010
+ refined velocities transferred
+ --------------------------------------------------
+ starting source initialization for vtype =           1
+ source does not lie on grid
+ source lies in a cut cell
+ refined source initialized in sregion           1
+ propagation through region           1  finished
+ refined source region           1  swept
+ refracting at interface           2
+ total reflection occurred at         1417  intersection nodes
+ starting sweep from interface           2 into region           2
+ propagation through sregion           2  finished
+ refined region           2  swept
+ refined grid for source           1 took  0.7775000      sec
+ 
+ shortest time on refined grid boundary is   6.93418125090960     
+ before transefr refined region
+ transferred times from fine grid to coarse for region           1
+ narrow band created in region           1 alive/nb         225         159
+ propagation through region           1  finished
+ results written to timefield           1
+ timefields in main grid regions connected to the source established, vtype=
+           1
+ starting downward sweep in main grid regions overlapping source region
+ timefield           2  of the downward sequence started
+ transferred times from fine grid to coarse for region           2
+ narrow band created in region           2 alive/nb          56          95
+ total reflection occurred at         1625  intersection nodes
+ propagation through region           2  finished
+ results written to timefield           2
+ turning rays were present on interface           2
+     timefields on upward init path for vtype  1:    1
+   timefields on downward init path for vtype  1:    1    2
+ # time fields from initialization           2
+ 
+ 
+ path   1    leg  1  using source time field   1
+ path   1  leg   2  from interface   2   to   1  through region   1
+ previous step is a source time field
+ propagation through region           1  finished
+ created new time field           3
+ path    1  timefields    1    3
+ starting the ray tracing for source           1
+  traced ray   1 to source   1  from receiver   1  t=   13.4681    F    F
+ getting partials for rec           1 ray           1
+  traced ray   1 to source   1  from receiver   2  t=   13.7664    F    F
+ getting partials for rec           2 ray           1
+  traced ray   1 to source   1  from receiver   3  t=   14.0114    F    F
+ getting partials for rec           3 ray           1
+  traced ray   1 to source   1  from receiver   4  t=   14.2327    F    F
+ getting partials for rec           4 ray           1
+  traced ray   1 to source   1  from receiver   5  t=   14.5939    F    F
+ getting partials for rec           5 ray           1
+  traced ray   1 to source   1  from receiver   6  t=   14.9286    F    F
+ getting partials for rec           6 ray           1
+  traced ray   1 to source   1  from receiver   7  t=   15.2773    F    F
+ getting partials for rec           7 ray           1
+  traced ray   1 to source   1  from receiver   8  t=   15.6503    F    F
+ getting partials for rec           8 ray           1
+  traced ray   1 to source   1  from receiver   9  t=   15.9485    F    F
+ getting partials for rec           9 ray           1
+  traced ray   1 to source   1  from receiver  10  t=   16.2762    F    F
+ getting partials for rec          10 ray           1
+  traced ray   1 to source   1  from receiver  11  t=   16.5061    F    F
+ getting partials for rec          11 ray           1
+  traced ray   1 to source   1  from receiver  12  t=   16.7593    F    F
+ getting partials for rec          12 ray           1
+  traced ray   1 to source   1  from receiver  13  t=   17.0256    F    F
+ getting partials for rec          13 ray           1
+  traced ray   1 to source   1  from receiver  14  t=   17.4193    F    F
+ getting partials for rec          14 ray           1
+  traced ray   1 to source   1  from receiver  15  t=   17.7138    F    F
+ getting partials for rec          15 ray           1
+  traced ray   1 to source   1  from receiver  16  t=   18.0209    F    F
+ getting partials for rec          16 ray           1
+  traced ray   1 to source   1  from receiver  17  t=   18.3472    F    F
+ getting partials for rec          17 ray           1
+  traced ray   1 to source   1  from receiver  18  t=   18.6419    F    F
+ getting partials for rec          18 ray           1
+  traced ray   1 to source   1  from receiver  19  t=   19.0272    F    F
+ getting partials for rec          19 ray           1
+  traced ray   1 to source   1  from receiver  20  t=   19.3010    F    F
+ getting partials for rec          20 ray           1
+  traced ray   1 to source   1  from receiver  21  t=   19.4636    F    F
+ getting partials for rec          21 ray           1
+  traced ray   1 to source   1  from receiver  22  t=   19.6881    F    F
+ getting partials for rec          22 ray           1
+  traced ray   1 to source   1  from receiver  23  t=   19.9140    F    F
+ getting partials for rec          23 ray           1
+  traced ray   1 to source   1  from receiver  24  t=   20.2285    F    F
+ getting partials for rec          24 ray           1
